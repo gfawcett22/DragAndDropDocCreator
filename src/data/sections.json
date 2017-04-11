@@ -1,0 +1,24 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "title": "Header"
+        },
+        {
+            "id": 2,
+            "title": "Sub-Header"
+        },
+        {
+            "id": 3,
+            "title": "Body"
+        },
+        {
+            "id": 4,
+            "title": "Paragraph"
+        },
+        {
+            "id": 5,
+            "title": "Footer"
+        }
+    ]
+}
