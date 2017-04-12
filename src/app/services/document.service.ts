@@ -16,7 +16,7 @@ export class DocumentService extends BaseService{
     const url = '/src/data/sections.json';
     return this.http.get(url)
       .map(super.extractData)
-      .do(sections => console.log(sections))
+      // .do(sections => console.log(sections))
       .catch(super.handleError);
   }
 }

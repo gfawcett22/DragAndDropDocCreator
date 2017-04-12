@@ -4,9 +4,9 @@ import { IDocumentSection } from 'app/models/document-section.interface';
 @Component({
   selector: 'app-document-section',
   template: `
-    <div>{{section.title}}</div>
+    <div class="container">{{section.title}}</div>
   `,
-  styles: []
+  styles: ['div.container {background-color: gray; border: 1px solid white; cursor: pointer;}']
 })
 export class DocumentSectionComponent implements OnInit {
   @Input() section: IDocumentSection;

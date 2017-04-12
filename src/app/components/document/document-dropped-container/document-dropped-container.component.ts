@@ -7,7 +7,11 @@ import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-document-dropped-container',
-  templateUrl: './document-dropped-container.component.html',
+  template: `
+  <div style="position:relative">
+    <app-document-section-list></app-document-section-list>
+  </div>
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DocumentDroppedContainerComponent implements OnInit {
@@ -15,7 +19,6 @@ export class DocumentDroppedContainerComponent implements OnInit {
 
   constructor(private store: Store<fromRoot.State>) {
     this.sections$ = store.select(fromRoot.getDropSections);
-    console.log(this.sections$);
   }
 
   ngOnInit() {
