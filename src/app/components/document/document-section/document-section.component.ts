@@ -4,7 +4,7 @@ import { IDocumentSection } from 'app/models/document-section.interface';
 @Component({
   selector: 'app-document-section',
   template: `
-    <span>{{section.title}}</span>
+    <div>{{section.title}}</div>
   `,
   styles: []
 })

@@ -18,7 +18,7 @@ export class DocumentDraggableContainerComponent implements OnInit {
   sections$: Observable<IDocumentSection[]>;
 
   constructor(private store: Store<fromRoot.State>, private documentService: DocumentService) {
-    this.sections$ = store.select(fromRoot.getDraggableSections);
+    this.sections$ = store.select(fromRoot.getDragSections);
     this.getSections();
   }
   getSections() {
