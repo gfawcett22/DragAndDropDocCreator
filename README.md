@@ -1,6 +1,8 @@
 # DragAndDrop
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+Created with ngrx/store and ng2-dragula.
+A lot of code and comments come from the ngrx/store [demo project](https://github.com/ngrx/example-app) 
 
 ## Development server
 

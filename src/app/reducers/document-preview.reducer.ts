@@ -1,30 +1,30 @@
 import { createSelector } from 'reselect';
-import { IDocumentSection } from '../models/document-section.interface';
-import * as drop from '../actions/drop-section.actions';
-import { IDocumentSectionInsert } from 'app/models/document-section-insert.interface';
+import * as document from '../actions/document-preview.actions';
+import { IDocumentTextInsert } from 'app/models/document-text-insert.interface';
+import { IDocumentText } from 'app/models/document-text.interface';
 
 
 export interface State {
-    sections: IDocumentSection[];
+    sections: IDocumentText[];
 }
 
 export const initialState: State = {
     sections: []
 };
 
-export function reducer(state = initialState, action: drop.Actions): State {
+export function reducer(state = initialState, action: document.Actions): State {
     switch (action.type) {
-        case drop.ActionTypes.INSERT:
-            const sectionToInsert = <IDocumentSectionInsert>action.payload;
+        case document.ActionTypes.ADD_SECTION:
+            const sectionToInsert = <IDocumentTextInsert>action.payload;
             return {
                 sections: [...state.sections.slice(0, sectionToInsert.index),
-                { id: sectionToInsert.id, title: sectionToInsert.title },
+                { sectionId: sectionToInsert.sectionId, text: sectionToInsert.text },
                 ...state.sections.slice(sectionToInsert.index + 1)
                 ]
             };
-        case drop.ActionTypes.REMOVE:
+        case document.ActionTypes.REMOVE_SECTION:
             const index = <number>action.payload;
-            return {
+            return{
                 sections: [...state.sections.slice(0, index), ...state.sections.slice(index + 1)]
             };
         default:

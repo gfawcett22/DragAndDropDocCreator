@@ -7,6 +7,8 @@ import { DocumentPreviewComponent } from './document-preview/document-preview.co
 import { DocumentService } from './../../services/document.service';
 
 import { DragulaModule } from 'ng2-dragula';
+import { DocumentSectionComponent } from './document-section/document-section.component';
+import { DocumentSectionListComponent } from './document-section-list/document-section-list.component';
 
 @NgModule({
   imports: [
@@ -21,6 +23,8 @@ import { DragulaModule } from 'ng2-dragula';
     DocumentDraggableContainerComponent,
     DocumentDroppedContainerComponent,
     DocumentPreviewComponent,
+    DocumentSectionComponent,
+    DocumentSectionListComponent,
   ],
   providers: [DocumentService]
 })

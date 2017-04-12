@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 import { type } from '../util';
 
-import { IDocumentSection } from '../models/document-section.interface';
+import { IDocumentTextInsert } from 'app/models/document-text-insert.interface';
 
 export const ActionTypes = {
     ADD_SECTION:       type('[Preview] Add Section'),
@@ -10,7 +10,7 @@ export const ActionTypes = {
 
 export class AddSectionAction implements Action {
     type = ActionTypes.ADD_SECTION;
-    constructor(public payload: IDocumentSection) {}
+    constructor(public payload: IDocumentTextInsert) {}
 }
 
 export class RemoveSectionAction implements Action {
@@ -19,6 +19,6 @@ export class RemoveSectionAction implements Action {
     constructor(public payload: number) {}
 }
 
-export type Action
+export type Actions
 = AddSectionAction
 | RemoveSectionAction;

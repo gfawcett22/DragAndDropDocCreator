@@ -8,7 +8,7 @@ export const ActionTypes = {
     REMOVE:     type('[Drop] Remove')
 };
 
-export class DropAction implements Action {
+export class InsertAction implements Action {
     type = ActionTypes.INSERT;
     constructor(public payload: IDocumentSectionInsert) {}
 }
@@ -20,5 +20,5 @@ export class RemoveAction implements Action {
 }
 
 export type Actions
-= DropAction
+= InsertAction
 | RemoveAction;

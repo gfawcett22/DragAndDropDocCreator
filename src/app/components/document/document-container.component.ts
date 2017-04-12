@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { DocumentService } from 'app/services/document.service';
+
+import * as fromRoot from '../../reducers';
 
 @Component({
   selector: 'app-document-container',
@@ -16,11 +18,11 @@ import { DocumentService } from 'app/services/document.service';
       </md-grid-tile>
     </md-grid-list>
   `,
-  styles: []
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DocumentContainerComponent implements OnInit {
 
-  constructor(private documentService: DocumentService) { }
+  constructor() { }
 
   ngOnInit() {
   }
