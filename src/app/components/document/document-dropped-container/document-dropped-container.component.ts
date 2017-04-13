@@ -8,10 +8,11 @@ import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-document-dropped-container',
   template: `
-  <div style="position:relative">
-    <app-document-section-list></app-document-section-list>
-  </div>
-  `,
+    <app-document-section-list [sections]="sections$ | async"
+        [dragula]='"second-bag"'
+        class="wrapper" 
+        style="min-width:100%;min-height:100%">
+    </app-document-section-list>  `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DocumentDroppedContainerComponent implements OnInit {

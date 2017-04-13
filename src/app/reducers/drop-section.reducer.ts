@@ -9,7 +9,7 @@ export interface State {
 }
 
 export const initialState: State = {
-    sections: []
+    sections: [{id: 8, title: 'Dropped'}, {id: 8, title: 'Dropped 2'}]
 };
 
 export function reducer(state = initialState, action: drop.Actions): State {

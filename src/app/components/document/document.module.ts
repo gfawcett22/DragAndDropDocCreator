@@ -9,6 +9,7 @@ import { DocumentService } from './../../services/document.service';
 import { DragulaModule } from 'ng2-dragula';
 import { DocumentSectionComponent } from './document-section/document-section.component';
 import { DocumentSectionListComponent } from './document-section-list/document-section-list.component';
+import { DraggableSectionService } from "app/services/draggable-section.service";
 
 @NgModule({
   imports: [
@@ -26,6 +27,8 @@ import { DocumentSectionListComponent } from './document-section-list/document-s
     DocumentSectionComponent,
     DocumentSectionListComponent,
   ],
-  providers: [DocumentService]
+  providers: [
+    DocumentService,
+    DraggableSectionService]
 })
 export class DocumentModule { }
