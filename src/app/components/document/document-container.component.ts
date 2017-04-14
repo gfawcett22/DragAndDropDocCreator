@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { DocumentService } from 'app/services/document.service';
 
-import * as fromRoot from '../../reducers';
+import { DragulaService } from 'ng2-dragula';
 
 @Component({
   selector: 'app-document-container',
@@ -18,7 +18,8 @@ import * as fromRoot from '../../reducers';
       </md-grid-tile>
     </md-grid-list>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  viewProviders: [DragulaService]
 })
 export class DocumentContainerComponent implements OnInit {
 

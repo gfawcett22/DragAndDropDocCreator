@@ -6,7 +6,7 @@ import * as drag from '../../../actions/draggable-section.actions';
 import { IDocumentSection } from 'app/models/document-section.interface';
 import { Observable } from 'rxjs/Observable';
 import { DragulaService } from 'ng2-dragula';
-import { DraggableSectionService } from "app/services/draggable-section.service";
+import { DraggableSectionService } from 'app/services/draggable-section.service';
 
 @Component({
   selector: 'app-document-draggable-container',
@@ -14,16 +14,17 @@ import { DraggableSectionService } from "app/services/draggable-section.service"
   template: `
     <app-document-section-list [sections]="sections$ | async"
         [dragula]='"first-bag"'
+        id="dragSection"
         class="wrapper" 
         style="min-width:100%;min-height:100%">
     </app-document-section-list>
-  `,
-  viewProviders: [DragulaService]
+  `
 })
 export class DocumentDraggableContainerComponent implements OnInit {
   sections$: Observable<IDocumentSection[]>;
 
-  constructor(private dragService: DraggableSectionService) {    
+  constructor(private dragService: DraggableSectionService, private dragulaService: DragulaService) {
+    this.dragulaService.setOptions('first-bag', {copy: true, copySortSource: true});
   }
   getSections() {
     this.sections$ = this.dragService.getSections();
