@@ -23,7 +23,9 @@ import { DragulaService } from 'ng2-dragula';
 })
 export class DocumentContainerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dragulaService: DragulaService) {
+    this.dragulaService.setOptions('first-bag', { copy: true, copySortSource: true });
+  }
 
   ngOnInit() {
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnChanges } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { IDocumentSection } from 'app/models/document-section.interface';
@@ -18,17 +18,21 @@ import {DragulaActionsService} from '../../../services/dragula-actions.service';
     </app-document-section-list>  `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DocumentDroppedContainerComponent implements OnInit {
+export class DocumentDroppedContainerComponent implements OnInit, OnChanges {
   sections$: Observable<IDocumentSection[]>;
 
   constructor(private dropService: DroppedSectionService,
     private dragulaService: DragulaService,
     private dragulaActionService: DragulaActionsService) {
+    // value is [element, target, source, sibling]
     this.dragulaService.drop.subscribe(val => {
+      console.log(val);
       this.dragulaActionService.onDrop(val);
     });
   }
-
+  ngOnChanges(changes){
+    console.log(this.sections$);
+  }
   ngOnInit() {
     this.sections$ = this.dropService.getSections();
   }

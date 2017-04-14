@@ -23,9 +23,9 @@ import { DraggableSectionService } from 'app/services/draggable-section.service'
 export class DocumentDraggableContainerComponent implements OnInit {
   sections$: Observable<IDocumentSection[]>;
 
-  constructor(private dragService: DraggableSectionService, private dragulaService: DragulaService) {
-    this.dragulaService.setOptions('first-bag', {copy: true, copySortSource: true});
+  constructor(private dragService: DraggableSectionService) {
   }
+
   getSections() {
     this.sections$ = this.dragService.getSections();
   }
