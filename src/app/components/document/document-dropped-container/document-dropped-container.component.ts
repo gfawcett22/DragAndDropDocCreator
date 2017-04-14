@@ -11,9 +11,7 @@ import {DragulaActionsService} from '../../../services/dragula-actions.service';
   selector: 'app-document-dropped-container',
   template: `
     <app-document-section-list [sections]="sections$ | async"
-        [dragula]='"first-bag"'
-        id="dropSection"
-        class="wrapper" 
+        
         style="min-width:100%;min-height:100%">
     </app-document-section-list>  `,
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -21,20 +19,14 @@ import {DragulaActionsService} from '../../../services/dragula-actions.service';
 export class DocumentDroppedContainerComponent implements OnInit, OnChanges {
   sections$: Observable<IDocumentSection[]>;
 
-  constructor(private dropService: DroppedSectionService,
-    private dragulaService: DragulaService,
-    private dragulaActionService: DragulaActionsService) {
-    // value is [element, target, source, sibling]
-    this.dragulaService.drop.subscribe(val => {
-      console.log(val);
-      this.dragulaActionService.onDrop(val);
-    });
-  }
-  ngOnChanges(changes){
+  constructor(private dropService: DroppedSectionService) {}
+
+  ngOnChanges(changes) {
     console.log(this.sections$);
   }
   ngOnInit() {
     this.sections$ = this.dropService.getSections();
   }
 
+ 
 }

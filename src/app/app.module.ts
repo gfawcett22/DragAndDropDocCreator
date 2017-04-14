@@ -29,7 +29,7 @@ import { DraggableSectionEffects } from 'app/effects/draggable-section.effects';
     EffectsModule.run(DraggableSectionEffects),
     // EffectsModule.run(CollectionEffects),
     MaterialModule,
-    DocumentModule
+    DocumentModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

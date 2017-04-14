@@ -12,10 +12,7 @@ import { DraggableSectionService } from 'app/services/draggable-section.service'
   selector: 'app-document-draggable-container',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <app-document-section-list [sections]="sections$ | async"
-        [dragula]='"first-bag"'
-        id="dragSection"
-        class="wrapper" 
+    <app-document-section-list [sections]="sections$ | async"        
         style="min-width:100%;min-height:100%">
     </app-document-section-list>
   `

@@ -4,7 +4,11 @@ import { IDocumentSection } from 'app/models/document-section.interface';
 @Component({
   selector: 'app-document-section-list',
   template: `
-    <app-document-section *ngFor="let section of sections" [section]="section"></app-document-section>
+    <app-document-section *ngFor="let section of sections" 
+                [section]="section"
+                dnd-droppable
+                (onDropSuccess)='handleDrop($event)' >
+    </app-document-section>
   `,
   styles: ['div.container {background-color:lightgray;}']
 })
@@ -13,6 +17,10 @@ export class DocumentSectionListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  handleDrop($event) {
+    console.log($event);
   }
 
 }

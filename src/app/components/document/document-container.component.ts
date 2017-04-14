@@ -18,13 +18,11 @@ import { DragulaService } from 'ng2-dragula';
       </md-grid-tile>
     </md-grid-list>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  viewProviders: [DragulaService]
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DocumentContainerComponent implements OnInit {
 
-  constructor(private dragulaService: DragulaService) {
-    this.dragulaService.setOptions('first-bag', { copy: true, copySortSource: true });
+  constructor() {
   }
 
   ngOnInit() {

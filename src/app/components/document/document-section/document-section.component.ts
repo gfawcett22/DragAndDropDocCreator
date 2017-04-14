@@ -4,7 +4,12 @@ import { IDocumentSection } from 'app/models/document-section.interface';
 @Component({
   selector: 'app-document-section',
   template: `
-    <div class="item">{{section.title}}</div>
+    <div class="item" 
+          dnd-draggable
+          [dragEnabled]="true"
+          [dragData]="section">
+          {{section.title}}
+    </div>
   `,
   styles: [`
   div.item {
