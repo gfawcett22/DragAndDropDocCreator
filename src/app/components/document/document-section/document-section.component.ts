@@ -4,10 +4,11 @@ import { IDocumentSection } from 'app/models/document-section.interface';
 @Component({
   selector: 'app-document-section',
   template: `
-    <div class="item" 
-          dnd-draggable
-          [dragEnabled]="true"
-          [dragData]="section">
+    <div class="item"    
+              dnd-sortable
+              [dragEnabled]="true"
+              [dragData]="section"
+              (onDropSuccess)='handleDrop($event)' >
           {{section.title}}
     </div>
   `,
@@ -26,5 +27,7 @@ export class DocumentSectionComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  handleDrop(event) {
+    console.log(event);
+  }
 }

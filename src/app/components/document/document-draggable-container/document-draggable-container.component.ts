@@ -12,7 +12,10 @@ import { DraggableSectionService } from 'app/services/draggable-section.service'
   selector: 'app-document-draggable-container',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <app-document-section-list [sections]="sections$ | async"        
+    <app-document-section-list 
+        [sections]="sections$ | async"  
+        dnd-sortable-container
+        [dropZones]="['zone']"
         style="min-width:100%;min-height:100%">
     </app-document-section-list>
   `

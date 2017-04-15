@@ -6,17 +6,16 @@ import { DocumentDroppedContainerComponent } from './document-dropped-container/
 import { DocumentPreviewComponent } from './document-preview/document-preview.component';
 import { DocumentService } from './../../services/document.service';
 
-import { DragulaModule } from 'ng2-dragula';
+// import { DragulaModule } from 'ng2-dragula';
 import { DocumentSectionComponent } from './document-section/document-section.component';
 import { DocumentSectionListComponent } from './document-section-list/document-section-list.component';
 import { DraggableSectionService } from 'app/services/draggable-section.service';
 import { DroppedSectionService } from 'app/services/drop-section.service';
-import { DragulaActionsService } from 'app/services/dragula-actions.service';
+// import { DragulaActionsService } from 'app/services/dragula-actions.service';
 
 @NgModule({
   imports: [
     SharedModule,
-    DragulaModule
   ],
   exports: [
     DocumentContainerComponent
@@ -33,7 +32,6 @@ import { DragulaActionsService } from 'app/services/dragula-actions.service';
     DocumentService,
     DraggableSectionService,
     DroppedSectionService,
-    DragulaActionsService
   ]
 })
 export class DocumentModule { }
