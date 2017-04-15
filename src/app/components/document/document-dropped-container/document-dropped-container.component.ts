@@ -5,7 +5,6 @@ import { IDocumentSection } from 'app/models/document-section.interface';
 import { Observable } from 'rxjs/Observable';
 import { DroppedSectionService } from 'app/services/drop-section.service';
 import { DragulaService } from 'ng2-dragula';
-import {DragulaActionsService} from '../../../services/dragula-actions.service';
 
 @Component({
   selector: 'app-document-dropped-container',
@@ -22,19 +21,14 @@ export class DocumentDroppedContainerComponent implements OnInit, OnChanges {
   sections$: Observable<IDocumentSection[]>;
 
   constructor(private dropService: DroppedSectionService,
-    private dragulaService: DragulaService,
-    private dragulaActionService: DragulaActionsService) {
-    // value is [element, target, source, sibling]
-    this.dragulaService.drop.subscribe(val => {
-      console.log(val);
-      this.dragulaActionService.onDrop(val);
-    });
-  }
-  ngOnChanges(changes){
-    console.log(this.sections$);
+    private dragulaService: DragulaService
+   ) {}
+  ngOnChanges(changes) {
+    //console.log(this.sections$);
   }
   ngOnInit() {
     this.sections$ = this.dropService.getSections();
   }
+  
 
 }

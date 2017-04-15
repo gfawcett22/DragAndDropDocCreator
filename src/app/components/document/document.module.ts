@@ -6,7 +6,7 @@ import { DocumentDroppedContainerComponent } from './document-dropped-container/
 import { DocumentPreviewComponent } from './document-preview/document-preview.component';
 import { DocumentService } from './../../services/document.service';
 
-import { DragulaModule } from 'ng2-dragula';
+import { DragulaModule, DragulaService } from 'ng2-dragula';
 import { DocumentSectionComponent } from './document-section/document-section.component';
 import { DocumentSectionListComponent } from './document-section-list/document-section-list.component';
 import { DraggableSectionService } from 'app/services/draggable-section.service';
@@ -30,6 +30,7 @@ import { DragulaActionsService } from 'app/services/dragula-actions.service';
     DocumentSectionListComponent,
   ],
   providers: [
+    DragulaService,
     DocumentService,
     DraggableSectionService,
     DroppedSectionService,

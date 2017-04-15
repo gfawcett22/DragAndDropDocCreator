@@ -2,6 +2,8 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { DocumentService } from 'app/services/document.service';
 
 import { DragulaService } from 'ng2-dragula';
+import { DragulaActionsService } from '../../services/dragula-actions.service';
+
 
 @Component({
   selector: 'app-document-container',
@@ -19,12 +21,24 @@ import { DragulaService } from 'ng2-dragula';
     </md-grid-list>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  viewProviders: [DragulaService]
 })
 export class DocumentContainerComponent implements OnInit {
 
-  constructor(private dragulaService: DragulaService) {
-    this.dragulaService.setOptions('first-bag', { copy: true, copySortSource: true });
+  constructor(private dragulaService: DragulaService, private dragulaActionService: DragulaActionsService) {
+    this.dragulaService.setOptions('first-bag', {
+      copy: true,
+      copySortSource: true,
+      accepts: function(el, target, source, sibling){
+        if (target.id === 'dropSection') {
+          return true;
+        }
+        return false;
+      }
+   });
+   // value is [element, target, source, sibling]
+    this.dragulaService.drop.subscribe(val => {
+      this.dragulaActionService.onDrop(val);
+    });
   }
 
   ngOnInit() {
