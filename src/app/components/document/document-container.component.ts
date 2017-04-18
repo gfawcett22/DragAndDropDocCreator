@@ -23,7 +23,6 @@ import { DragulaActionsService } from '../../services/dragula-actions.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DocumentContainerComponent implements OnInit {
-
   constructor(private dragulaService: DragulaService, private dragulaActionService: DragulaActionsService) {
     this.dragulaService.setOptions('first-bag', {
       copy: true,

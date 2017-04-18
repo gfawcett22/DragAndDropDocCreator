@@ -10,6 +10,7 @@ import { DragulaService } from 'ng2-dragula';
   selector: 'app-document-dropped-container',
   template: `
     <app-document-section-list [sections]="sections$ | async"
+        [removeIcon]="true"
         [dragula]='"first-bag"'
         id="dropSection"
         class="wrapper" 

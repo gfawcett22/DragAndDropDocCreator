@@ -19,11 +19,16 @@ export class DragulaActionsService {
         } else {
             const valueToDrop = dropValue[1];
             const index = this.getElementIndex(valueToDrop);
-            console.log(valueToDrop.dataset.id);
+            const id = valueToDrop.dataset.id;
             // remove the value so it is not being added by dragula service and is added via action dispatch
             dropValue[1].remove();
-            this.store.dispatch(new drop.InsertAction({id: 1, title: valueToDrop.innerText, index: index}));
+            this.store.dispatch(new drop.InsertAction({id: 1, 
+                                    title: valueToDrop.innerText.replace(/^\s+|\s+$/g, ''),
+                                    index: index}));
         }
+    }
+    onRemove(index){
+        this.store.dispatch(new drop.RemoveAction(index));
     }
     private getElementIndex(el: any) {
     if (el && el.parentElement) {
