@@ -15,11 +15,11 @@ export const initialState: State = {
 export function reducer(state = initialState, action: drop.Actions): State {
     switch (action.type) {
         case drop.ActionTypes.INSERT:
-            const sectionToInsert = <IDocumentSectionInsert>action.payload;
+            const sectionToInsert = <IDocumentSectionInsert>action.payload;            
             return {
                 sections: [...state.sections.slice(0, sectionToInsert.index),
-                { id: sectionToInsert.id, title: sectionToInsert.title },
-                ...state.sections.slice(sectionToInsert.index + 1)
+                ...[{ id: sectionToInsert.id, title: sectionToInsert.title }],
+                ...state.sections.slice(sectionToInsert.index)
                 ]
             };
         case drop.ActionTypes.REMOVE:

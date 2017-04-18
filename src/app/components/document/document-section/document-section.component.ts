@@ -4,7 +4,7 @@ import { IDocumentSection } from 'app/models/document-section.interface';
 @Component({
   selector: 'app-document-section',
   template: `
-    <div class="item">{{section.title}}</div>
+    <div [attr.data-id]="section.id" class="item">{{section.title}}</div>
   `,
   styles: [`
   div.item {
@@ -17,7 +17,9 @@ import { IDocumentSection } from 'app/models/document-section.interface';
 })
 export class DocumentSectionComponent implements OnInit {
   @Input() section: IDocumentSection;
-  constructor() { }
+  constructor() {
+    console.log(this.section);
+   }
 
   ngOnInit() {
   }
