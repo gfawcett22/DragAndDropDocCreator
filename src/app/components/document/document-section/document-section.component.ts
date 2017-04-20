@@ -4,7 +4,11 @@ import { IDocumentSection } from 'app/models/document-section.interface';
 @Component({
   selector: 'app-document-section',
   template: `
-    <div class="item">{{section.title}}<i *ngIf="removeIcon" (click)="removeSectionClick($event)" class="fa fa-minus-circle"></i></div>
+    <div class="item">
+      {{section.title}}
+      <i *ngIf="showRemoveIcon" (click)="removeSectionEmitted()" class="fa fa-minus-circle">
+      </i>
+    </div>
   `,
   styles: [`
   div.item {
@@ -24,15 +28,19 @@ import { IDocumentSection } from 'app/models/document-section.interface';
 })
 export class DocumentSectionComponent implements OnInit {
   @Input() section: IDocumentSection;
-  @Input() removeIcon: boolean
+  @Input() showRemoveIcon: boolean;
+  @Input() index: number;
+
   @Output() removeSection = new EventEmitter<any>();
+
   constructor() {
    }
 
   ngOnInit() {
   }
-  removeSectionClick(event){
-    this.removeSection.emit();
+  removeSectionEmitted() {
+    console.log('section item', this.index);
+    this.removeSection.emit(this.index);
   }
 
 }
