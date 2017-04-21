@@ -11,13 +11,20 @@ import { DraggableSectionService } from 'app/services/draggable-section.service'
 @Component({
   selector: 'app-document-draggable-container',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  styles: [
+    `
+      :host{
+        width:100%;
+        height:100%;
+      }
+    `
+  ],
   template: `
     <app-document-section-list [sections]="sections$ | async"
         [showRemoveIcon]="false"
         [dragula]='"first-bag"'
         id="dragSection"
-        class="wrapper" 
-        style="min-width:100%;min-height:100%">
+        class="wrapper"         
         >
     </app-document-section-list>
   `
